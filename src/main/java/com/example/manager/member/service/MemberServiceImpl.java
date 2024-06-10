@@ -7,10 +7,11 @@ import com.example.manager.member.entity.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.beans.Transient;
 import java.util.List;
 
+@CrossOrigin
 @Service
 public class MemberServiceImpl implements MemberService {
     @Autowired

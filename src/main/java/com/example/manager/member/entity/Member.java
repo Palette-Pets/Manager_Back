@@ -2,7 +2,6 @@ package com.example.manager.member.entity;
 
 import com.example.manager.member.dto.Role;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.*;
 
 @Getter
@@ -17,7 +16,6 @@ public class Member {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long memberId;
-    @Email
     private String email;
     @Column(name = "member_name")
     private String memberName;
