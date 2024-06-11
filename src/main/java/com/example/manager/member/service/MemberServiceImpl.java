@@ -25,6 +25,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    @Transactional
     public void stopMember(Long memberId) {
         Member member = memberRepository.findById(memberId).orElseThrow(() -> new RuntimeException("Member not found"));
         member.setIsDeleted();
