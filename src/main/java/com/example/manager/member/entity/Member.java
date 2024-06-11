@@ -9,7 +9,6 @@ import lombok.*;
 @Builder
 @Table(name = "member")
 @NoArgsConstructor
-@Data
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class Member {
     @Id
@@ -29,5 +28,10 @@ public class Member {
     private String memberPhone;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @Column(name = "is_deleted")
+    private boolean isDeleted;
 
+    public void setIsDeleted() {
+        this.isDeleted = !this.isDeleted;
+    }
 }

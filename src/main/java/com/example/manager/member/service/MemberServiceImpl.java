@@ -24,4 +24,11 @@ public class MemberServiceImpl implements MemberService {
         return memberRepository.findByRole(Role.USER);
     }
 
+    @Override
+    public void stopMember(Long memberId) {
+        Member member = memberRepository.findById(memberId).orElseThrow(() -> new RuntimeException("Member not found"));
+        member.setIsDeleted();
+        memberRepository.save(member);
+    }
+
 }
