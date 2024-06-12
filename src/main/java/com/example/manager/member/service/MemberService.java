@@ -10,4 +10,6 @@ public interface MemberService {
     List<Member> getMemberList();
 
     void stopMember(Long memberId);
+
+//    List<Member> getEmailList(Long memberId);
 }

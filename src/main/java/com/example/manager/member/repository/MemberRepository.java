@@ -9,4 +9,6 @@ import java.util.List;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
     List<Member> findByRole(Role role);
+
+//    List<Member> findAllByMemberId(Long memberId);
 }

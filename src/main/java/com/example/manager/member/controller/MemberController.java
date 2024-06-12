@@ -20,6 +20,14 @@ public class MemberController {
         return memberList;
     }
 
+//    @PostMapping("/emailList")
+//    public List<Member> emailList(@RequestBody String memberId) {
+//        System.out.println("memberId = " + memberId);
+//        List<Member> emailList = memberService.getEmailList(Long.valueOf(memberId));
+//        System.out.println("emailList = " + emailList);
+//        return emailList;
+//    }
+
     @PutMapping("/stopMember/{memberId}")
     public void stopMember(@PathVariable Long memberId) {
         System.out.println("memberId = " + memberId);
