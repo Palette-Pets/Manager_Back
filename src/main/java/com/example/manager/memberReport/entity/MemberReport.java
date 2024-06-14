@@ -17,18 +17,24 @@ public class MemberReport {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "report_id")
     private Long reportId;
+
     @ManyToOne
     @JoinColumn (name = "member_id", referencedColumnName = "member_id")
     private Member memberId;
+
     @ManyToOne
     @JoinColumn (name = "reported_id", referencedColumnName = "member_id")
     private Member reportedMemberId;
+
     @Column (name = "report_reason")
     private String reportReason;
+
     @Column (name = "report_content")
     private String reportContent;
+
     @Column (name = "report_count")
     private int reportCount;
+
     @Column (name = "report_date")
     private Date reportDate;
 }

@@ -1,25 +1,27 @@
 package com.example.manager.member.service;
 
-import com.example.manager.member.dto.Role;
+import com.example.manager.member.dto.MemberDTO;
+import com.example.manager.member.dto.MemberWithReportDTO;
+import com.example.manager.member.entity.Role;
 import com.example.manager.member.repository.MemberRepository;
 import com.example.manager.member.entity.Member;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
-    @Autowired
-    private MemberRepository memberRepository;
-
+    private final MemberRepository memberRepository;
 
     @Override
     @Transactional
-    public List<Member> getMemberList() {
-        return memberRepository.findByRole(Role.USER);
+    public List<MemberWithReportDTO> getAllMemberWithReport(Role role) {
+        return memberRepository.findAllMembersWithReport(role);
     }
 
     @Override
@@ -30,10 +32,12 @@ public class MemberServiceImpl implements MemberService {
         memberRepository.save(member);
     }
 
-//    @Override
-//    @Transactional
-//    public List<Member> getEmailList(Long memberId) {
-//        return memberRepository.findAllByMemberId(memberId);
-//    }
-
+    @Override
+    public MemberDTO findMemberDTOById(String memberEmail) {
+        MemberDTO member = memberRepository.findMemberDTOById(memberEmail);
+        if (member == null) {
+            throw new EntityNotFoundException("Member not found with memberId: " + memberEmail);
+        }
+        return member;
+    }
 }
