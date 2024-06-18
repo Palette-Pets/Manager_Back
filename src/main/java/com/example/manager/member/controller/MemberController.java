@@ -28,7 +28,6 @@ public class MemberController {
 
     @GetMapping("/member/{memberEmail}")
     public ResponseEntity<MemberDTO> findMemberDTOById(@PathVariable String memberEmail) {
-        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=");
         System.out.println("memberEmail = " + memberEmail);
         if (memberEmail == null) {
             return ResponseEntity.badRequest().build();
