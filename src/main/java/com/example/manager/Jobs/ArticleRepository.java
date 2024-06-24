@@ -1,2 +1,7 @@
-package com.example.manager.Jobs;public interface ArticleRepository {
+package com.example.manager.Jobs;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ArticleRepository extends JpaRepository<Article, Long> {
+
 }
