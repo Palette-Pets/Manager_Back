@@ -21,7 +21,7 @@ WORKDIR /work
 
 # JAR 파일을 컨테이너에 복사
 # (예: ./build/libs/your-application.jar 경로를 사용한다고 가정)
-COPY ./build/libs/PalettePetsBack-0.0.1-SNAPSHOT.jar /work/PalettePetsBack-0.0.1-SNAPSHOT.jar
+COPY ./build/libs/manager-0.0.1-SNAPSHOT.jar /work/manager-0.0.1-SNAPSHOT.jar
 
 # JAR 파일을 실행
-ENTRYPOINT ["java", "-jar", "/work/PalettePetsBack-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/work/manager-0.0.1-SNAPSHOT.jar"]
